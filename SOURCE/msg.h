@@ -12,13 +12,13 @@ class Msg
     int status;     //  Any errors in frames?
 public:
     Msg();
-    int setid(unsigned int mid);
-    unsigned int getid();
-    int setdlc(unsigned int mdlc);
-    unsigned int getdlc();
-    int setdata(int num,unsigned char data);
-    unsigned char getdata(int num);
-    int getstatus();
+    int setId(unsigned int mid);
+    unsigned int getId();
+    int setDlc(unsigned int mdlc);
+    unsigned int getDlc();
+    int setData(int num,unsigned char ndata);
+    unsigned char getData(int num);
+    int getStatus();
 
 };
 
