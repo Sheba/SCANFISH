@@ -32,6 +32,8 @@ int main(int argc, char** argv)
   for(i=0;i<mFirstMsg.getDlc();i++)
     printf("%c",mFirstMsg.getData(i));
   printf("\nStatus=%d",mFirstMsg.getStatus());
+  printf("\nTest error:");
+  mFirstMsg.setData(8,'D');
 
   return (EXIT_SUCCESS);
 }

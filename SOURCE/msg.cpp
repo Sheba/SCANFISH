@@ -5,7 +5,7 @@ Msg::Msg()
 {
   id=0;
   dlc=0;
-  status=0;
+  status=STATUS_OK;
 };
 
 int Msg::setId(unsigned int mid)
@@ -32,8 +32,16 @@ unsigned int  Msg::getDlc()
 
 int Msg::setData(int num,unsigned char ndata)
 {
-  data[num]=ndata;
-  return 0;
+  if(num>=0 and num<8) 
+  {
+   data[num]=ndata;
+   return 0;
+  }
+    else 
+    {
+      printf("\nError! The maximum number of an element 7");
+      return 1;
+    }
 };
 
 unsigned char Msg::getData(int num)
