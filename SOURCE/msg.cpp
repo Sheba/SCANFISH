@@ -32,21 +32,36 @@ unsigned int  Msg::getDlc()
 
 int Msg::setData(int num,unsigned char ndata)
 {
-  if(num>=0 and num<8) 
+  if(num<8) 
   {
    data[num]=ndata;
    return 0;
   }
     else 
     {
-      printf("\nError! The maximum number of an element 7");
+      fprintf(stderr,"Error set! The maximum number of an element 7\n\n");
       return 1;
     }
 };
 
 unsigned char Msg::getData(int num)
 {
-  return data[num];
+  if(num<8) 
+  {
+   return data[num];
+  }
+    else 
+    {
+      fprintf(stderr,"Error get! The maximum number of an element 7\n\n");
+      return 1;
+    }
+};
+
+
+int Msg::setStatus(int nstatus)
+{
+  status=nstatus;
+  return 0;
 };
 
 int Msg::getStatus()

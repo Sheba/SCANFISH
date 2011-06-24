@@ -18,6 +18,7 @@ public:
     unsigned int getDlc();
     int setData(int num,unsigned char ndata);
     unsigned char getData(int num);
+    int setStatus(int nstatus);
     int getStatus();
 
 };
