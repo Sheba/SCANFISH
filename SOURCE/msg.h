@@ -16,8 +16,8 @@ public:
     unsigned int getId();
     int setDlc(unsigned int mdlc);
     unsigned int getDlc();
-    int setData(int num,unsigned char ndata);
-    unsigned char getData(int num);
+    int setData(unsigned int num,unsigned char ndata);
+    unsigned char getData(unsigned int num);
     int setStatus(int nstatus);
     int getStatus();
 

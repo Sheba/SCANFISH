@@ -30,7 +30,7 @@ unsigned int  Msg::getDlc()
   return dlc;
 };
 
-int Msg::setData(int num,unsigned char ndata)
+int Msg::setData(unsigned int num,unsigned char ndata)
 {
   if(num<8) 
   {
@@ -44,7 +44,7 @@ int Msg::setData(int num,unsigned char ndata)
     }
 };
 
-unsigned char Msg::getData(int num)
+unsigned char Msg::getData(unsigned int num)
 {
   if(num<8) 
   {
