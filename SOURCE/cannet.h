@@ -10,8 +10,12 @@
 class MsgQueue
 {
     int size;
+    int start;
+    int end;
+    Msg **queue;
 public:
     MsgQueue(int size);
+    ~MsgQueue();
     int get(Msg *msg);
     int put(Msg *msg);
 };
