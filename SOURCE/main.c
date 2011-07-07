@@ -6,28 +6,40 @@
 #include "cannet.h"
 #include "msg.h"
 #include "controller.h"
+
 /*
  * 
  */
+
 int main(int argc, char** argv)
 {
   //Test class Msg
   int i;
-  Msg mFirstMsg;
-  Msg mTwoMsg;
-  Msg mThreeMsg;
-  Msg m1;
-  Msg m2;
-  Msg m3;
-  MsgQueue WriteQueue(10); 
+  MsgSuperviser *mFirst;
+  MsgSuperviser *mTwo;
+  MsgSuperviser *mThree;
+  MsgSuperviser *pM1;
+  MsgSuperviser *pM2;
+  MsgSuperviser *pM3;
+  //Creations of messages
+  Msg mFirstMsg(mFirst);
+  Msg mTwoMsg(mTwo);
+  Msg mThreeMsg(mThree);
+  Msg m1(pM1);
+  Msg m2(pM2);
+  Msg m3(pM3);
+
+  MsgQueue WriteQueue; 
+
 
   printf("Test msg:\n");
-  mFirstMsg.setId(1234);
-  mTwoMsg.setId(4321);
-  mTwoMsg.setId(6666);
-  printf("1.ID=%d\n",mFirstMsg.getId());
-  printf("2.ID=%d\n",mTwoMsg.getId());
-  printf("3.ID=%d\n",mThreeMsg.getId());
+  mFirstMsg.setID(1234);
+  mTwoMsg.setID(4321);
+  mThreeMsg.setID(6666);
+  printf("1.ID=%d\n",mFirstMsg.getID());
+  printf("2.ID=%d\n",mTwoMsg.getID());
+  printf("3.ID=%d\n",mThreeMsg.getID());
+
 
   mFirstMsg.setDlc(8);
   mTwoMsg.setDlc(8);
@@ -108,6 +120,7 @@ int main(int argc, char** argv)
 
   printf("\n");
   printf("-----------------------------------\n");
+
   return (EXIT_SUCCESS);
 }
 

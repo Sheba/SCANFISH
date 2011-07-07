@@ -4,21 +4,23 @@
 
 #include "msg.h"
 #include "canio.h"
+#include <queue>
+#include <semaphore.h>
 
 
 // Should implement buffer between network and software
 class MsgQueue
 {
-    int size;
-    int start;
-    int end;
-    Msg **queue;
+    std::queue<Msg*> mQueue;
+    sem_t semaph;
 public:
-    MsgQueue(int size);
+    MsgQueue();
     ~MsgQueue();
-    int get(Msg *msg);
-    int put(Msg *msg);
-};
+
+    int get(Msg* msg);
+    int put(Msg* msg);
+
+};                    
 
 class CanNet
 {

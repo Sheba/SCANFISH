@@ -1,28 +1,24 @@
 #include "cannet.h"
-#include <stdio.h>
 
-MsgQueue::MsgQueue(int size)
+MsgQueue::MsgQueue()
 {
-  queue=new Msg*[size];
-  start=end=0;
+ // sem_init(&semaph,0,0);
 };
 
 MsgQueue::~MsgQueue()
 {
-  delete queue;
-  printf("Delete queue\n"); 
 };
 
-int MsgQueue::get(Msg *msg)
+int MsgQueue::get(Msg* msg)
 {
-  *msg=*queue[start];
-  start++;
+  *msg=*mQueue.front();
+  mQueue.pop();
   return 0;
 };
 
-int MsgQueue::put(Msg *msg)
+int MsgQueue::put(Msg* msg)
 {
-  queue[end]=msg;
-  end++;
+  mQueue.push(msg);
   return 0;
 };
+
