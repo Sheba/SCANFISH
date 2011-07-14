@@ -13,11 +13,12 @@ class MsgQueue
 {
     std::queue<Msg*> mQueue;
     sem_t semaph;
+    sem_t s_empty;
 public:
     MsgQueue();
     ~MsgQueue();
 
-    int get(Msg* msg);
+    Msg* get();
     int put(Msg* msg);
 
 };                    
