@@ -9,6 +9,8 @@ MsgQueue::MsgQueue()
 
 MsgQueue::~MsgQueue()
 {
+ sem_destroy(&semaph);
+ sem_destroy(&s_empty);
 };
 
 Msg* MsgQueue::get()

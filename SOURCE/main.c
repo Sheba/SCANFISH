@@ -12,37 +12,36 @@
 /*
  * 
  */
+MsgQueue Queue;
 MsgQueue *m;
 
 void *writing(void*arg)
 {
   int i;
   MsgSuperviser *pointer;
+  MsgSuperviser *d;
   Msg msg_1(pointer);
   Msg *p;
-  char *str;
-  printf("\n Adress msg put\n");
+
   for(i=0;i<15;i++)
   {
     p=new Msg(pointer);
-    sprintf(str,"Writing: %p",p);
-    write(1,str,15);
-    m->put(p); 
- }
+    printf("\n->%p",p);
+    m->put(p);
+    sleep(1); 
+  }
 }
 
 void *reading(void*arg)
 {
-  Msg*p;
-  char *str;
+  Msg *p;
   int i;
-  printf("WORK READING");
+
   for(i=0;i<15;i++)
   {
-    p=m->get();
-    printf("\n----->%p\n",p);  
-   sprintf(str,"Writing: %p",p);
-   write(1,str,15);
+    sleep(1);
+    p=m->get();  
+    printf("\n<-%p",p);
   }
 }
 
@@ -50,11 +49,12 @@ int main(int argc, char** argv)
 {
   pthread_t w_thread;
   pthread_t r_thread;
-
+  m=&Queue;
+  printf("Test pthread:\n");
   pthread_create(&w_thread,NULL,writing,NULL);
   pthread_create(&r_thread,NULL,reading,NULL);
 
-
+  sleep(20);
   return (EXIT_SUCCESS);
 }
 
