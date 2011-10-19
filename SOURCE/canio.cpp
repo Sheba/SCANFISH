@@ -97,11 +97,9 @@ int SocketCanIO::disconnect()
 int SocketCanIO::send(Msg *msg)
 {
     struct can_frame frame;
-    struct can_filter filter;
     int nbytes;
     int i;
 
-    filter.can_mask=msg->getMask();
     frame.can_id=msg->getID();
     frame.can_dlc=msg->getDlc();
 
@@ -115,11 +113,6 @@ int SocketCanIO::send(Msg *msg)
 	//perror("write");
 	return SOCK_WRITING_ERROR;
     }
-    
-    if((nbytes = write(sdw, &filter, sizeof(filter))) != sizeof(filter))
-    {
-        return SOCK_WRITING_ERROR;
-    }
 
     msg->setMsgFree();
     return 0;
@@ -128,7 +121,6 @@ int SocketCanIO::send(Msg *msg)
 int SocketCanIO::receive(Msg **msg)
 {
     struct can_frame frame;
-    struct can_filter filter;
     (*msg)=msv.allocMsgContainer();
     int nbytes;
     int i;
@@ -140,15 +132,9 @@ int SocketCanIO::receive(Msg **msg)
 	return SOCK_READING_ERROR;
     }
     
-    if((nbytes = read(sdr, &filter, sizeof(filter))) != sizeof(filter))
-    {
-        return SOCK_READING_ERROR;
-    }
 
     (*msg)->fixTime();
-    (*msg)->setMask(filter.can_mask);
     (*msg)->setID(frame.can_id);
-    (*msg)->setRtr(frame.can_id & 1);
     (*msg)->setDlc(frame.can_dlc);
 
 

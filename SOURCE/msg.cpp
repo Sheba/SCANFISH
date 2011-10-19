@@ -76,6 +76,8 @@ int Msg::setID(unsigned long mid)
         return WRONG_ID;
     }
     id=mid;
+    setRtr(id & 1);
+    setIde(id & 524288);
     return 0;
 }
 
@@ -130,6 +132,33 @@ int Msg::setRtr(int nRtr)
 int Msg::getRtr()
 {
     return rtr;
+}
+
+int Msg::setIde(int nIde)
+{
+    ide=nIde;
+    return 0;
+}
+
+int Msg::getCrc()
+{
+    return ide;
+}
+
+int Msg::isRTR()
+{
+    if(getRtr()) 
+        return 1;
+    else
+        return 0;
+}
+
+int Msg::isIDE()
+{
+    if(getIde()) 
+        return 1;
+    else
+        return 0;
 }
 
 int Msg::setData(unsigned int num,unsigned char mdata)

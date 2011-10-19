@@ -9,11 +9,6 @@
 
 #define STATUS_OK 0
 
-/* valid bits in CAN ID for frame formats*/
-#define CAN_SFF_MASK 0x000007FFU /* standard frame */
-#define CAN_EFF_MASK 0x1FFFFFFFU /* extended frame */
-#define CAN_ERR_MASK 0x1FFFFFFFU /* omit EFF, RTR, ERR flags */
-
 class MsgSuperviser;
 
 class Msg 
@@ -22,10 +17,10 @@ class Msg
 private:
     unsigned long id; // should be 32 bit
     unsigned int dlc;
-    unsigned long mask;
     unsigned char data[8];
     int rtr; // remote transmission request flag
     int crc; // cyclic redundancy code
+    int ide; // 
     int status;     //  any errors in frames? for the future use
     MsgSuperviser *sv; // looks for the Msg resources
     struct timeval timestamp;
@@ -38,12 +33,14 @@ public:
     int setDlc(unsigned int mdlc);
     unsigned int getDlc();
 /***************************************/
-    int setMask(unsigned long mask);
-    unsigned long getMask();
     int setCrc(int nCrc);
     int getCrc();
     int setRtr(int nRtr);
     int getRtr();
+    int setIde(int nIde);
+    int getIde();
+    int isRTR(); // if 1-remote frame 0- data frame 
+    int isIDE(); // if 1- extended frame 0- standard frame
 /***************************************/
     int setData(unsigned int num,unsigned char mdata);
     unsigned char getData(unsigned int num);
