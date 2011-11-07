@@ -1,11 +1,19 @@
 #include "Transmit.h"
 #include <QTime>
+<<<<<<< HEAD
 
 Transmit :: Transmit(QWidget *Trans) : QGroupBox (Trans)
 {
     setTitle("    Transmit");
     //  setGeometry(100,100,650,150);
     k=0; //kol strok tablici
+=======
+Transmit :: Transmit(QWidget *Trans) : QGroupBox (Trans)
+{
+
+    setTitle("    Transmit");
+    k=0;
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 
     TransTab = new QTableWidget(0,4);
     TransTab->setColumnWidth(0,130);
@@ -33,12 +41,21 @@ Transmit :: Transmit(QWidget *Trans) : QGroupBox (Trans)
 
     TransTab->horizontalHeader()->setResizeMode(3,QHeaderView::Stretch);
 
+<<<<<<< HEAD
     TransSaveButton=new QPushButton ("Save");
     TransSaveButton->setFixedSize (95,27);
     TransSaveButton->setEnabled(false);
 
     VerticalSpacer = new QSpacerItem (10,0,QSizePolicy::Expanding,
             QSizePolicy::Minimum);
+=======
+   TransSaveButton=new QPushButton ("Save");
+   TransSaveButton->setFixedSize (95,27);
+   TransSaveButton->setEnabled(false);
+
+   VerticalSpacer = new QSpacerItem (10,0,QSizePolicy::Expanding,
+           QSizePolicy::Minimum);
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 
     TransLayout = new QGridLayout;
     TransLayout->addWidget(TransTab,1,1,-1,1,Qt::AlignTop);
@@ -46,10 +63,17 @@ Transmit :: Transmit(QWidget *Trans) : QGroupBox (Trans)
     TransLayout->addWidget(TransClearButton,2,2,Qt::AlignTop);
     TransLayout->addItem(VerticalSpacer,3,2,3,0,Qt::AlignTop);
 
+<<<<<<< HEAD
     setLayout(TransLayout);
 
     connect (TransClearButton,SIGNAL(clicked()),this,SLOT(TransTableClear()));
     connect (TransSaveButton,SIGNAL(clicked()),this,SLOT(TransTableSave()));
+=======
+   setLayout(TransLayout);
+
+   connect (TransClearButton,SIGNAL(clicked()),this,SLOT(TransTableClear()));
+   connect (TransSaveButton,SIGNAL(clicked()),this,SLOT(TransTableSave()));
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 }
 
 void Transmit :: TransTableClear()
@@ -66,6 +90,7 @@ void Transmit :: SendSlot (QString ID, QString DLC, QString DATA,QTime time)
     k++;
     TransClearButton->setEnabled(true);
     TransSaveButton->setEnabled(true);
+<<<<<<< HEAD
     TransTab->insertRow(0);
     TransTab->setRowHeight(0,15);
     //check overflow
@@ -75,6 +100,18 @@ void Transmit :: SendSlot (QString ID, QString DLC, QString DATA,QTime time)
         TransTab->removeRow(count-1);
     }
     // Time
+=======
+
+    TransTab->insertRow(0);
+    TransTab->setRowHeight(0,15);
+
+    int count=TransTab->rowCount();
+    if(count>MAX_TABLE_SIZE)
+    {
+       TransTab->removeRow(count-1);
+    }
+
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
     QString text;
     text=time.toString("hh:mm:ss.zzz");
 
@@ -82,8 +119,12 @@ void Transmit :: SendSlot (QString ID, QString DLC, QString DATA,QTime time)
     T_Item1->setText(text);
     TransTab->setItem(0,0,T_Item1);
     TransTab->item(0,0)->setTextAlignment(Qt::AlignCenter);
+<<<<<<< HEAD
     // Time
     //QString text;
+=======
+
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
     QTableWidgetItem *T_Item2 = new QTableWidgetItem;
     T_Item2->setText(ID);
     TransTab->setItem(0,1,T_Item2);
@@ -97,15 +138,25 @@ void Transmit :: SendSlot (QString ID, QString DLC, QString DATA,QTime time)
 
     QTableWidgetItem *T_Item4 = new QTableWidgetItem
             (QString::fromLocal8Bit(""));
+<<<<<<< HEAD
     //text = "01  02  03  04  05  06  07  08";
     T_Item4->setText(DATA);
     TransTab->setItem(0,3,T_Item4);
     TransTab->item(0,3)->setTextAlignment(Qt::AlignCenter);
 
+=======
+    T_Item4->setText(DATA);
+    TransTab->setItem(0,3,T_Item4);
+    TransTab->item(0,3)->setTextAlignment(Qt::AlignCenter);
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 }
 
 void Transmit :: TransTableSave()
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
     QString fileName = QFileDialog::getSaveFileName(this,
             tr("Save File"), "Transmit",tr("Text Files (*.txt);"));
     if (fileName != "")

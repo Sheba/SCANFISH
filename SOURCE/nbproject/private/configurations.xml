@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="69">
   <projectmakefile>Makefile</projectmakefile>
+<<<<<<< HEAD
   <defaultConf>1</defaultConf>
   <confs>
     <conf name="Debug" type="4">
       <gizmo_options version="3">
         <configurationname>GizmoSunStudioStandard</configurationname>
+=======
+  <defaultConf>0</defaultConf>
+  <confs>
+    <conf name="Debug" type="4">
+      <gizmo_options version="3">
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
       </gizmo_options>
       <runprofile version="6">
         <args></args>
@@ -20,7 +27,10 @@
     </conf>
     <conf name="Release" type="4">
       <gizmo_options version="3">
+<<<<<<< HEAD
         <configurationname>GizmoSimple</configurationname>
+=======
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
       </gizmo_options>
       <runprofile version="6">
         <args></args>

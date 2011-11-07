@@ -3,6 +3,10 @@
 #include <stdio.h>
 #include <string.h>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 MainWindow :: MainWindow (QWidget *MainWin, 
         Controller *mContr) : QWidget (MainWin),CanListener()
 {
@@ -24,16 +28,35 @@ MainWindow :: MainWindow (QWidget *MainWin,
 
     QObject::connect (MessEd,SIGNAL(SendSig(QString, QString, QString,QTime)),
             Trans,SLOT(SendSlot(QString, QString, QString,QTime)));
+<<<<<<< HEAD
     QObject::connect (this,SIGNAL(ReceiveSignal(int,int,QString,QTime)),Rec,SLOT(ReceiveSlot(int,int,QString,QTime)));
     QObject::connect(Con,SIGNAL(active()),this,SLOT(connect()));
     QObject::connect(Con,SIGNAL(disactive()),this,SLOT(disconnect()));
 
+=======
+
+    QObject::connect (this,SIGNAL(ReceiveSignal(int,int,QString,QTime)),Rec,SLOT(ReceiveSlot(int,int,QString,QTime)));
+
+    QObject::connect(Con,SIGNAL(active()),this,SLOT(connect()));
+    QObject::connect(Con,SIGNAL(disactive()),this,SLOT(disconnect()));
+
+    QObject::connect(MessEd,SIGNAL(changeNum()),this,SLOT(setCurrentNum()));
+    QObject::connect(Con,SIGNAL(changeNum()),this,SLOT(setCurrentNum()));
+
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
     setLayout(MainLayout);
 }
 
 int MainWindow :: connect()
 {
+<<<<<<< HEAD
     MessEd->wakeUp();
+=======
+     MessEd->wakeUp();
+     std::map <int,CanNet*>::iterator it;
+     it=Contr->nettab.find(Contr->netCount);
+     num=it->first;
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 }
 
 int MainWindow :: disconnect()
@@ -47,7 +70,11 @@ int MainWindow :: notify()
     QString text;
     char data_element[17];
     Msg *msg;
+<<<<<<< HEAD
     Contr->receive(&msg,1);
+=======
+    Contr->receive(&msg,num);
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
     for (i=0;i<msg->getDlc();i++)
     {
         sprintf(data_element,"%02X",msg->getData(i));
@@ -60,7 +87,10 @@ int MainWindow :: notify()
     emit ReceiveSignal(msg->getID(),msg->getDlc(),text,time);
     msg->setMsgFree();
     return 0;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 }
 
 int MainWindow :: errorInNet(const char* str)
@@ -68,8 +98,15 @@ int MainWindow :: errorInNet(const char* str)
      QMessageBox msgBox;
      QString string(str);
      QString info("Warning");
+<<<<<<< HEAD
      msgBox.setText(string);
      msgBox.setIcon(QMessageBox::Warning);
+=======
+
+     msgBox.setText(string);
+     msgBox.setIcon(QMessageBox::Warning);
+
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
      msgBox.setWindowTitle(info);
      msgBox.exec();
 }
@@ -91,6 +128,7 @@ void MainWindow::showCredits()
     lbl->show();
 }
 
+<<<<<<< HEAD
 
 
 
@@ -146,3 +184,14 @@ void MainWindow::showCredits()
 
 
 
+=======
+int MainWindow::getnum()
+{
+    return num;
+}
+
+void MainWindow::setCurrentNum()
+{
+    Contr->contrNum=num;
+}
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216

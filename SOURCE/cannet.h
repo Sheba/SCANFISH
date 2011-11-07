@@ -10,19 +10,28 @@
 
 class CanListener;
 
+class CanListener;
+
 // Should implement buffer between network and software
 class MsgQueue
 {
     std::queue<Msg*> mQueue;
     sem_t semaph;
     sem_t s_empty;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 public:
     MsgQueue();
     ~MsgQueue();
 
     Msg* get();
     int put(Msg* msg);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 }; 
 
 class CanNet

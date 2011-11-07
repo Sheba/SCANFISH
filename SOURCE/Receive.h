@@ -16,13 +16,24 @@
 #include <QGroupBox>
 #include <QVBoxLayout>
 #include <QSpacerItem>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 #include <QDirModel>
 #include <QTreeView>
 #include <QFileDialog>
 #include <QFile>
 #include <QTextStream>
+<<<<<<< HEAD
 #include "MessageEditor.h"
 
+=======
+
+#include "MessageEditor.h"
+
+
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 #define MAX_TABLE_SIZE 1000
 
 class Receive : public QGroupBox
@@ -47,7 +58,10 @@ private:
     int k;
     int i;
     int j;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 };
 
 

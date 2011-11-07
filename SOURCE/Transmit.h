@@ -14,6 +14,10 @@
 #include <QTableWidgetItem>
 #include <QHeaderView>
 #include <QGroupBox>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 #include <QDirModel>
 #include <QTreeView>
 #include <QFileDialog>
@@ -21,9 +25,13 @@
 #include <QTextStream>
 #include <QTime>
 #include "MessageEditor.h"
+<<<<<<< HEAD
 
 #define MAX_TABLE_SIZE 1000
 
+=======
+#define MAX_TABLE_SIZE 1000
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 class Transmit : public QGroupBox
 {
     Q_OBJECT
@@ -33,6 +41,11 @@ public:
     Transmit(QWidget *Trans);
 
     //signals:
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 private slots:
     void TransTableClear();
     void SendSlot(QString ID,QString DLC, QString DATA,QTime time);

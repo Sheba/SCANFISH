@@ -12,9 +12,17 @@
 #include "Transmit.h"
 #include "Receive.h"
 #include "Connection.h"
+<<<<<<< HEAD
 #include "controller.h"
 #include "msg.h"
 
+=======
+
+#include "controller.h"
+#include "msg.h"
+
+
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 class MainWindow : public QWidget, public CanListener
 {
     Q_OBJECT
@@ -25,14 +33,27 @@ public:
 
     int notify();
     int errorInNet(const char *str);
+<<<<<<< HEAD
 
 signals:
+=======
+    int getnum();
+    void setContrNum();
+    int num;
+
+    signals:
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
     void ReceiveSignal(int ID,int DLC,QString DATA,QTime time);
 
 public slots:
     int connect();
     int disconnect();
     void showCredits();
+<<<<<<< HEAD
+=======
+    void setCurrentNum();
+
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 
 private:
     MessageEditor *MessEd; 

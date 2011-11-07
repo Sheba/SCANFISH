@@ -35,6 +35,12 @@
       <itemPath>main.cpp</itemPath>
       <itemPath>msg.cpp</itemPath>
       <itemPath>msg.h</itemPath>
+<<<<<<< HEAD
+=======
+      <itemPath>msgspv.cpp</itemPath>
+      <itemPath>msgspv.h</itemPath>
+      <itemPath>sferror.h</itemPath>
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -53,7 +59,11 @@
     <conf name="Debug" type="4">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
+<<<<<<< HEAD
         <compilerSet>GNU_1|GNU</compilerSet>
+=======
+        <compilerSet>GNU|GNU</compilerSet>
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
         <platform>2</platform>
       </toolsSet>
       <qt>
@@ -71,10 +81,13 @@
       <qt>
         <buildMode>1</buildMode>
         <modules>core gui</modules>
+<<<<<<< HEAD
         <defs>
           <Elem>CONFIG += static</Elem>
           <Elem>DEFINES += QT_NO_WARNINGS_OUTPUT</Elem>
         </defs>
+=======
+>>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
       </qt>
       <compileType>
         <cTool>
