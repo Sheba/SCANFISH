@@ -22,11 +22,7 @@ AS=as
 QMAKE=qmake
 
 # Macros
-<<<<<<< HEAD
-CND_PLATFORM=GNU_1-Linux-x86
-=======
 CND_PLATFORM=GNU-Linux-x86
->>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 CND_CONF=Debug
 CND_DISTDIR=dist
 
@@ -64,11 +60,7 @@ FORCE:
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS} nbproject/qt-${CND_CONF}.mk
-<<<<<<< HEAD
-	"${MAKE}" -f nbproject/qt-${CND_CONF}.mk dist/Debug/GNU_1-Linux-x86/QtApplication_1
-=======
 	"${MAKE}" -f nbproject/qt-${CND_CONF}.mk dist/Debug/GNU-Linux-x86/SOURCE
->>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 
 build/Debug/%.o: nbproject/qt-Debug.mk
 	$(MAKE) -f nbproject/qt-Debug.mk "$@"

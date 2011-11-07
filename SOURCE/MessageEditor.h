@@ -20,10 +20,7 @@
 #include <QIntValidator>
 #include <QTime>
 #include <stdio.h>
-<<<<<<< HEAD
-=======
 
->>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 #include "controller.h"
 #include "msg.h"
 
@@ -37,20 +34,11 @@ public:
             Controller *mContr,Msg *mGuiMsgContainer);
     void setSleep();
     void wakeUp();
-<<<<<<< HEAD
-
-signals:
-    void DLC_TextChanged (int k);
-    void SendClicked();
-    void SendSig(QString ID,QString DLC,QString DATA,QTime time);
-=======
     signals:
     void DLC_TextChanged (int k);
     void SendClicked();
     void SendSig(QString ID,QString DLC,QString DATA,QTime time);
-    void changeNum();
 
->>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 
 private slots:
     void CommitClicked();
@@ -59,10 +47,7 @@ private slots:
     void SendSigSl();
 
 private:
-<<<<<<< HEAD
-=======
 
->>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
     QLabel *tLabel_ID;
     QLabel *tLabel_fID;
     QLabel *tLabel_DLC;

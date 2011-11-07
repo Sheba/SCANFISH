@@ -1,16 +1,9 @@
 #include "Receive.h"
 #include <QTime>
-<<<<<<< HEAD
-
-Receive :: Receive(QWidget *Rec) : QGroupBox (Rec)
-{
-    k=0; 
-=======
 Receive :: Receive(QWidget *Rec) : QGroupBox (Rec)
 {
     k=0; //
 
->>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
     setTitle("    Receive");
     RecTab = new QTableWidget(0,4);
     RecTab->setColumnWidth(0,130);
@@ -30,32 +23,6 @@ Receive :: Receive(QWidget *Rec) : QGroupBox (Rec)
             (QString::fromLocal8Bit("DATA"));
     RecTab->setHorizontalHeaderItem(3,RecTab_Item3);
 
-<<<<<<< HEAD
-    RecClearButton = new QPushButton("Clear");
-    RecClearButton->setFixedSize(95,27);
-    RecClearButton->setEnabled(false);
-
-    RecSaveButton=new QPushButton ("Save");
-    RecSaveButton->setFixedSize (95,27);
-    RecSaveButton->setEnabled(false);
-
-    VerticalSpacer = new QSpacerItem (10,0,QSizePolicy::Expanding,
-            QSizePolicy::Minimum);
-
-    RecLayout = new QGridLayout;
-    RecLayout->addWidget(RecTab,1,1,-1,1,Qt::AlignTop);
-    RecLayout->addWidget(RecSaveButton,1,2,Qt::AlignTop);
-    RecLayout->addWidget(RecClearButton,2,2,Qt::AlignTop);
-    RecLayout->addItem(VerticalSpacer,3,2,3,0,Qt::AlignTop);
-
-    setLayout(RecLayout);
-
-    RecTab->horizontalHeader()->setResizeMode(3,QHeaderView::Stretch);
-    RecTab->verticalHeader()->setVisible(false);
-
-    connect (RecClearButton,SIGNAL(clicked()),this,SLOT(RecTableClear()));
-    connect (RecSaveButton,SIGNAL(clicked()),this,SLOT(RecTableSave()));
-=======
    RecClearButton = new QPushButton("Clear");
    RecClearButton->setFixedSize(95,27);
    RecClearButton->setEnabled(false);
@@ -80,7 +47,6 @@ Receive :: Receive(QWidget *Rec) : QGroupBox (Rec)
 
    connect (RecClearButton,SIGNAL(clicked()),this,SLOT(RecTableClear()));
    connect (RecSaveButton,SIGNAL(clicked()),this,SLOT(RecTableSave()));
->>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 }
 
 void Receive :: RecTableClear()
@@ -102,20 +68,11 @@ void Receive :: ReceiveSlot(int ID,int DLC,QString DATA,QTime time)
     RecTab->setRowHeight(0,15);
     QString text;
 
-<<<<<<< HEAD
-    //check overflow
-=======
->>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
     int count=RecTab->rowCount();
     if(count>MAX_TABLE_SIZE)
     {
        RecTab->removeRow(count-1);
     }
-<<<<<<< HEAD
-
-    // Time
-=======
->>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
     
     text=time.toString("hh:mm:ss.zzz");
 
@@ -123,11 +80,7 @@ void Receive :: ReceiveSlot(int ID,int DLC,QString DATA,QTime time)
     T_Item1->setText(text);
     RecTab->setItem(0,0,T_Item1);
     RecTab->item(0,0)->setTextAlignment(Qt::AlignCenter);
-<<<<<<< HEAD
-    // Time
-=======
 
->>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
     text = QVariant(ID).toString();
     QTableWidgetItem *T_Item2 = new QTableWidgetItem;
     T_Item2->setText(text);
@@ -143,11 +96,7 @@ void Receive :: ReceiveSlot(int ID,int DLC,QString DATA,QTime time)
 
     QTableWidgetItem *T_Item4 = new QTableWidgetItem
             (QString::fromLocal8Bit(""));
-<<<<<<< HEAD
-    //text = "01  02  03  04  05  06  07  08";
-=======
 
->>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
     T_Item4->setText(DATA);
     RecTab->setItem(0,3,T_Item4);
     RecTab->item(0,3)->setTextAlignment(Qt::AlignCenter);
@@ -156,10 +105,7 @@ void Receive :: ReceiveSlot(int ID,int DLC,QString DATA,QTime time)
 
 void Receive :: RecTableSave()
 {
-<<<<<<< HEAD
-=======
 
->>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
     QString fileName = QFileDialog::getSaveFileName(this, 
             tr("Save File"), "Receive",tr("Text Files (*.txt);"));
     if (fileName != "")
@@ -207,12 +153,7 @@ void Receive :: RecTableSave()
                 stream<<"\n";
                 i=0;
                 j++;
-<<<<<<< HEAD
-            }
-           
-=======
             }        
->>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
             file.close();
         }
     }

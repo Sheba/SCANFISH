@@ -1,6 +1,7 @@
 #ifndef CANNET_H
 #define	CANNET_H
 
+
 #include "msg.h"
 #include "canio.h"
 #include <queue>
@@ -8,7 +9,6 @@
 #include <pthread.h>
 #include "canlistener.h"
 
-class CanListener;
 
 class CanListener;
 
@@ -18,25 +18,17 @@ class MsgQueue
     std::queue<Msg*> mQueue;
     sem_t semaph;
     sem_t s_empty;
-<<<<<<< HEAD
-
-=======
->>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 public:
     MsgQueue();
     ~MsgQueue();
 
     Msg* get();
     int put(Msg* msg);
-<<<<<<< HEAD
-=======
 
->>>>>>> 2eacb6f8f27d6c7af85d9f7b5e8cdb7fde9b2216
 }; 
 
 class CanNet
 {
-
 private:
     CanIO *canio;
     MsgQueue rqueue; //reading queue
@@ -57,6 +49,8 @@ public:
     int write(Msg *msg);
     int read(Msg **msg);
 };
+
+
 
 #endif	/* CANNET_H */
 
