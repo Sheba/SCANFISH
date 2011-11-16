@@ -76,37 +76,43 @@ Msg::Msg(MsgSuperviser *msv)
 
 int Msg::setID(unsigned long mid)
 {
-	/*if(mid>0x1FFFFFFF)
+	if(mid>0xFFFFFFFF)
 	{
 		return WRONG_ID;
-	}*/
+	}
 
-        if(mid&CAN_RTR_FLAG) RtrFlag=1;
-        else RtrFlag=0;
+        if(mid&CAN_RTR_FLAG) setRtrFlag(1);
+        else setRtrFlag(0);
 
-        if(mid&CAN_ERR_FLAG) ErrorFlag=1;
-        else ErrorFlag=0;
+        if(mid&CAN_ERR_FLAG) setErrorFlag(1);
+        else setErrorFlag(0);
 
-        if(mid&CAN_EFF_FLAG) 
-        {
-            ExtendedFlag=1;
-	    id=mid&CAN_EFF_MASK;
-        }
-        else 
-          {
-               ExtendedFlag=0;
-               id=mid&CAN_SFF_MASK;
-          }
-        realID=id;
+        if(mid&CAN_EFF_FLAG) setExtendedFlag(1);
+        else setExtendedFlag(0);
+   
+        id=mid;
 	return 0;
 }
 
+
 unsigned long Msg::getID()
 {
-        setRtrFlag(id);
-        setErrorFlag(id);
-        setExtendedFlag(id);
+        if(getRtrFlag()) id=id|CAN_RTR_FLAG;
+        if(getErrorFlag()) id=id|CAN_ERR_FLAG;
+        if(getExtendedFlag()) id=id|CAN_EFF_FLAG;
 	return id;
+}
+
+unsigned long Msg::getRealID()
+{
+ if(id&CAN_EFF_FLAG)
+ {
+        return id&CAN_EFF_MASK;
+ }
+ else
+    {
+           return id&CAN_SFF_MASK;
+    }
 }
 
 int Msg::setDlc(unsigned int mdlc)
@@ -155,24 +161,38 @@ void Msg::setStatus(int st)
 	status=st;
 }
 
-int Msg::setRtrFlag(unsigned long tempID)
+int Msg::setRtrFlag(int vFlag)
 {
-        if(RtrFlag) tempID|CAN_RTR_FLAG;
+        RtrFlag=vFlag;
         return 0;
 }
 
-int Msg::setErrorFlag(unsigned long tempID)
+int Msg::setErrorFlag(int vFlag)
 {
-        if(ErrorFlag) tempID|CAN_ERR_FLAG;
+        ErrorFlag=vFlag;
         return 0;
 }
 
-int Msg::setExtendedFlag(unsigned long tempID)
+int Msg::setExtendedFlag(int vFlag)
 {
-        if(ExtendedFlag) tempID|CAN_EFF_FLAG;
+        ExtendedFlag=vFlag;
         return 0;
 }
 
+int Msg::getRtrFlag()
+{
+        return RtrFlag;
+}
+
+int Msg::getErrorFlag()
+{
+        return ErrorFlag;
+}
+
+int Msg::getExtendedFlag()
+{
+        return ExtendedFlag;
+}
 
 void Msg::setMsgFree()
 {

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'MessageEditor.h'
 **
-** Created: Mon Oct 31 23:14:24 2011
+** Created: Wed Nov 16 14:17:49 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!

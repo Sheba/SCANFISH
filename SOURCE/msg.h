@@ -30,7 +30,6 @@ class Msg
 
 private:
     unsigned long id; // should be 32 bit
-    unsigned long realID; // 29 bits ID
     unsigned int dlc;
     unsigned char data[8];
     int status;     //  any errors in frames? for the future use
@@ -45,16 +44,23 @@ public:
     // accessors
     int setID(unsigned long mid);
     unsigned long getID();
+    unsigned long getRealID();
     int setDlc(unsigned int mdlc);
     unsigned int getDlc();
     int setData(unsigned int num,unsigned char mdata);
     unsigned char getData(unsigned int num);
     int getStatus();
     void setStatus(int st);
-    int setRtrFlag(unsigned long tempID);
-    int setErrorFlag(unsigned long tempID);
-    int setExtendedFlag(unsigned long tempID);
- 
+
+    int setRtrFlag(int vFlag);
+    int setErrorFlag(int vFlag);
+    int setExtendedFlag(int vFlag);
+
+    int getRtrFlag();
+    int getErrorFlag();
+    int getExtendedFlag();
+
+    
     //	set this Msg container  free
     void setMsgFree();
 	void fixTime();
